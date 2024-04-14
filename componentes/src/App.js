@@ -2,7 +2,7 @@
 import './App.css';
 //import {BrowserRouter as Router} from "react-router-dom";
 //import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
-//import MenuC from './componentes/MenuC';
+import MenuC from './componentes/MenuC';
 //import { PersonaP } from './componentes/PersonaP';
 //import { ProductoP } from './componentes/ProductoP';
 import { Contador, Example } from './componentes/Contador';
@@ -19,7 +19,7 @@ function App() {
   const empleado = <div>{nombre} {edad} {correo} {telefono}</div>; */
   return (
     <div className='App'>
-
+      <MenuC/>
       <Estado/>
       <Contador/>
       <Example/>
