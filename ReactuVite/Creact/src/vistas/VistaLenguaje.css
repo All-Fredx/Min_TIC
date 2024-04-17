@@ -1,0 +1,12 @@
+.lenVista {
+    max-width: 80%;
+    margin: auto;
+    text-align: center;
+    border: 10px;
+    padding: 20px;
+}
+
+
+.lenVista img {
+    max-width: 80%;
+}

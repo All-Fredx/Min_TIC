@@ -18,7 +18,7 @@ app.post("/logueo", (req, res) =>{
             check: true
         };
         const token = jwt.sign(payload, app.get("key"),{
-            expiresIn:"1m"
+            expiresIn:"3m"
         });
         res.json({msg:"El usuario se encuentra logueado", token: token});
     }else{
