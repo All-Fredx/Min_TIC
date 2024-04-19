@@ -1,0 +1,17 @@
+.table tbody td{
+    background-color: #222222;
+    color: aliceblue;
+}
+
+.table th {
+    border-radius: 30px;
+    border: none;
+}
+.table td {
+    border-radius: 8px;
+}
+
+#botones_td {
+    background-color: transparent;
+    border: none;
+}

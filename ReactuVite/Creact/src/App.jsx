@@ -7,8 +7,8 @@ import Lenguajes from './datos/Lenguajes'
 
 function App() {
   const [count, setCount] = useState(0)
-  const lenguajesList = Lenguajes.map((l)=> {
-    return <Card titulo={l.nombre} description={l.comentario} imagen={l.image} />
+  const lenguajesList = Lenguajes.map((l, index)=> {
+    return <Card key= {index} titulo={l.nombre} description={l.comentario} imagen={l.image} />
   })
   return (
     <>

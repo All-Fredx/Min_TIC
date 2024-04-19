@@ -1,0 +1,15 @@
+.nav-item {
+  padding: 5px 10px;
+}
+.nav-item a {
+  background-color: #eee;
+  color: inherit; 
+} 
+.nav-item a:hover { 
+  color: inherit; 
+}
+.containerMenu {
+  background-color: #1a76d2;
+  padding: 0 30px;
+}
+  
