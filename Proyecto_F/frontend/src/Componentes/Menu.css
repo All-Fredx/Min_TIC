@@ -11,5 +11,6 @@
 .containerMenu {
   background-color: #1a76d2;
   padding: 0 30px;
+  border-bottom: 2px solid #343a40;
 }
   
