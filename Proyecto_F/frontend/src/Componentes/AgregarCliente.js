@@ -25,6 +25,7 @@ const AgregarCliente = () => {
         });
         navigate("/clientes");
     };
+    
 
     const irAClientes = () => {
         navigate("/clientes");

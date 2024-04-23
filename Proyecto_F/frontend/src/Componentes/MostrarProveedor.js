@@ -24,7 +24,7 @@ const MostrarProveedor = () => {
     };
     
     return(
-        <div>
+        <div className="contenedor-max">
             <Menu hideProveedores={true}/>
             <div className="container">
                 <div className="row">

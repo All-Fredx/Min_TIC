@@ -5,63 +5,54 @@ import { useNavigate, useParams } from "react-router-dom";
 const URL = "http://localhost:5000/api/clientes/";
 
 const ModificarCliente = () => {
-    const { id } = useParams(); // Obtener el ID del cliente de los parámetros de la URL
+    const [nombres, setNombres] = useState("");
+    const [apellidos, setApellidos] = useState("");
+    const [documento, setDocumento] = useState("");
+    const [correo, setCorreo] = useState("");
+    const [telefono, setTelefono] = useState("");
+    const [direccion, setDireccion] = useState("");
     const navigate = useNavigate();
+    const {id} = useParams();
 
-    const [cliente, setCliente] = useState({
-        nombres: "",
-        apellidos: "",
-        documento: "",
-        correo: "",
-        telefono: "",
-        direccion: "",
-    });
-
-    useEffect(() => {
-        // Función para obtener los datos del cliente y establecerlos en el estado
-        const obtenerCliente = async () => {
-            try {
-                const response = await axios.get(`${URL}${id}`);
-                setCliente(response.data);
-            } catch (error) {
-                console.error("Error al obtener datos del cliente:", error);
-            }
-        };
-
-        obtenerCliente(); // Llamar a la función cuando el componente se monta
-    }, [id]);
-
-    const handleChange = (e) => {
-        // Función para manejar cambios en los campos del formulario
-        const { name, value } = e.target;
-        setCliente((prevCliente) => ({
-            ...prevCliente,
-            [name]: value,
-        }));
-    };
-
-    const handleSubmit = async (e) => {
+    const guardarCliente = async (e) => {
         e.preventDefault();
-        try {
-            await axios.put(`${URL}${id}`, cliente);
-            navigate("/clientes"); // Redirigir a la lista de clientes después de la modificación
-        } catch (error) {
-            console.error("Error al modificar el cliente:", error);
-        }
+        await axios.put(`${URL}${id}`, {
+            nombres,
+            apellidos,
+            documento,
+            correo,
+            telefono,
+            direccion,
+        });
+        navigate("/clientes");
     };
-
+    useEffect(() => {
+        getClientesByID();
+        //eslint-disable-next-line
+    },[]);
+    const irAClientes = () => {
+        navigate("/clientes");
+    }; 
+    const getClientesByID = async() =>{
+        const res = await axios.get(`${URL}${id}`)
+        setNombres(res.data.nombres)
+        setApellidos(res.data.apellidos)
+        setDocumento(res.data.documento)
+        setCorreo(res.data.correo)
+        setTelefono(res.data.telefono)
+        setDireccion(res.data.direccion)
+    }
     return (
         <div className="container contenedor mx-auto" style={{ maxWidth: "800px" }}>
             <h3 className="text-center">Modificar Cliente</h3>
-            <form onSubmit={handleSubmit}>
+            <form onSubmit={guardarCliente}>
                 <div className="row">
                     <div className="col-md-6">
                         <div className="mb-3">
                             <label className="form-label">Nombres</label>
                             <input
-                                name="nombres"
-                                value={cliente.nombres}
-                                onChange={handleChange}
+                                value={nombres}
+                                onChange={(e) => setNombres(e.target.value)}
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese los nombres"
@@ -71,9 +62,8 @@ const ModificarCliente = () => {
                         <div className="mb-3">
                             <label className="form-label">Apellidos</label>
                             <input
-                                name="apellidos"
-                                value={cliente.apellidos}
-                                onChange={handleChange}
+                                value={apellidos}
+                                onChange={(e) => setApellidos(e.target.value)}
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese los apellidos"
@@ -83,9 +73,8 @@ const ModificarCliente = () => {
                         <div className="mb-3">
                             <label className="form-label">Documento</label>
                             <input
-                                name="documento"
-                                value={cliente.documento}
-                                onChange={handleChange}
+                                value={documento}
+                                onChange={(e) => setDocumento(e.target.value)}
                                 type="number"
                                 className="form-control"
                                 placeholder="Ingrese el número de documento"
@@ -97,9 +86,8 @@ const ModificarCliente = () => {
                         <div className="mb-3">
                             <label className="form-label">Correo</label>
                             <input
-                                name="correo"
-                                value={cliente.correo}
-                                onChange={handleChange}
+                                value={correo}
+                                onChange={(e) => setCorreo(e.target.value)}
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese el correo electrónico"
@@ -109,9 +97,8 @@ const ModificarCliente = () => {
                         <div className="mb-3">
                             <label className="form-label">Teléfono</label>
                             <input
-                                name="telefono"
-                                value={cliente.telefono}
-                                onChange={handleChange}
+                                value={telefono}
+                                onChange={(e) => setTelefono(e.target.value)}
                                 type="number"
                                 className="form-control"
                                 placeholder="Ingrese el número de teléfono"
@@ -121,9 +108,8 @@ const ModificarCliente = () => {
                         <div className="mb-3">
                             <label className="form-label">Dirección</label>
                             <input
-                                name="direccion"
-                                value={cliente.direccion}
-                                onChange={handleChange}
+                                value={direccion}
+                                onChange={(e) => setDireccion(e.target.value)}
                                 type="text"
                                 className="form-control"
                                 placeholder="Ingrese la dirección"
@@ -134,7 +120,7 @@ const ModificarCliente = () => {
                 </div>
                 <div className="row mt-3">
                     <div className="col-md-12 text-center">
-                        <button type="button" onClick={() => navigate("/clientes")} className="btn btn-secondary me-2">
+                        <button type="button" onClick={irAClientes} className="btn btn-secondary me-2">
                             Cancelar
                         </button>
                         <button type="submit" className="btn btn-primary">
@@ -145,6 +131,7 @@ const ModificarCliente = () => {
             </form>
         </div>
     );
+
 };
 
 export default ModificarCliente;
