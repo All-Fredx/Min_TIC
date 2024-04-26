@@ -1,8 +1,44 @@
+/*CSS General*/
 .App {
   text-align: center;
   background-color: #000000;
-  
   margin: 0;
+}
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+.App-link {
+  color: #61dafb;
+}
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+/*CSS Contenedor Objetos*/
+.container {
+  padding: 20px;
+  background-color: #000000;
 }
 .contenedor {
   padding-top: 50px;
@@ -16,61 +52,64 @@
   background-color: #222222;
   border-radius: 8px;
   box-shadow: 3px 3px 20px aliceblue;
-  
-}
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 .btn {
   padding-right: 100px;
 }
+.app-container {
+  background-color: #000000;
+}
+/* CSS Menu*/
+.nav-item {
+  padding: 5px 10px;
+}
+.nav-item a {
+  background-color: #eee;
+  color: inherit;
+}
+.nav-item a:hover {
+  color: inherit;
+}
+.containerMenu {
+  background-color: #1a76d2;
+  padding: 0 30px;
+  border-bottom: 2px solid #343a40;
+  width: 100%;
+  
+}
 
+/* CSS Table*/
+.table tbody td{
+  background-color: #222222;
+  color: aliceblue;
+}
+.table th {
+  border-radius: 30px;
+  border: none;
+}
+.table td {
+  border-radius: 8px;
+}
+#botones_td {
+  background-color: transparent;
+  border: none;
+}
+/*CSS Footer*/
 .footer {
   color: aliceblue;
   background-color: #333;
-  position: fixed;
-  bottom: 0;
-  left: 0;
   width: 100%;
   text-align: center;
+  padding-bottom: 1px;
+  padding-top: 16px;
 }
-.contact-info, .social-links {
+
+.contact-info,
+.social-links {
   list-style-type: none;
   padding: 0;
 }
-
 .social-links li {
   display: inline-block;
   margin-right: 10px;
@@ -78,47 +117,14 @@
 .social-links li:last-child {
   margin-right: 0;
 }
-.social-links a, .contact-info a {
+.social-links a,
+.contact-info a {
   color: aliceblue;
 }
-.social-links a:hover, .contact-info a:hover {
+.social-links a:hover,
+.contact-info a:hover {
   color: #1a76d2;
 }
 .social-links a {
   font-size: 20px;
 }
-
-.app-container {
-  margin-bottom: 173px;
-  margin-top: 105px;
-}
-
-.nav-item {
-  padding: 5px 10px;
-}
-.nav-item a {
-  background-color: #eee;
-  color: inherit; 
-} 
-.nav-item a:hover { 
-  color: inherit; 
-}
-.containerMenu {
-  background-color: #1a76d2;
-  padding: 0 30px;
-  border-bottom: 2px solid #343a40;
-  position: fixed;
-  top: 0;
-  right: 0;
-  width: 100%;
-}
-
-.container {
-  padding: 20px;
-  background-color: #000000;
-}
-
-.contenedor-max {
-  min-height: 62vh;
-}
-  

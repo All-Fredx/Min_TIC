@@ -11,21 +11,21 @@ import Footer from './Componentes/Footer';
 
 
 function App() {
+  
   return (
-    <div className="App app-container contenedor-max">
-      
+    <div className="App app-container">
+      <Menu/>
       <BrowserRouter>
-        <Routes className='contenedor-max'>
-          <Route path='/' element ={<Menu hideInicio={true} />} ></Route>
+        <Routes >
           <Route path='/clientes' element ={<MostrarCliente/>} ></Route>
           <Route path='/proveedores' element ={<MostrarProveedor/>} ></Route>
-          <Route path='/clientes/agregar' element={<><Menu hideProveedores={true} /><AgregarCliente /></>}></Route>
-          <Route path='/proveedores/agregar' element={<><Menu hideClientes={true} /><AgregarProveedor/></>}></Route>
-          <Route path='/clientes/editar/:id' element={<><Menu hideProveedores={true} /><ModificarCliente/></>}></Route>
-          <Route path='/proveedores/editar/:id' element={<><Menu hideClientes={true} /><ModificarProveedor/></>}></Route>
+          <Route path='/clientes/agregar' element={<><AgregarCliente /></>}></Route>
+          <Route path='/proveedores/agregar' element={<><AgregarProveedor/></>}></Route>
+          <Route path='/clientes/editar/:id' element={<><ModificarCliente/></>}></Route>
+          <Route path='/proveedores/editar/:id' element={<><ModificarProveedor/></>}></Route>
         </Routes>
-        <Footer />
       </BrowserRouter>
+      <Footer />
     </div>
   );
 }

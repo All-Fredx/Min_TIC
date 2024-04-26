@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Menu from "./Menu";
 import "./Table.css";
 
 const URL = "http://localhost:5000/api/proveedores/";
@@ -24,8 +23,7 @@ const MostrarProveedor = () => {
     };
     
     return(
-        <div className="contenedor-max">
-            <Menu hideProveedores={true}/>
+        <div className="">
             <div className="container">
                 <div className="row">
                     <div className="col">
