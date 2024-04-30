@@ -1,9 +1,5 @@
-/*CSS General*/
-.App {
-  text-align: center;
-  background-color: #000000;
-  margin: 0;
-}
+/*CSS General
+
 .App-logo {
   height: 40vmin;
   pointer-events: none;
@@ -35,13 +31,30 @@
     transform: rotate(360deg);
   }
 }
+*/
+.App {
+  text-align: center;
+  background-color: #000000;
+  margin: 0;
+  display: flex; /* Añadido para el diseño flexbox */
+  min-height: 100vh; /* Asegura la altura del viewport */
+  flex-direction: column;
+}
+.main-content {
+  padding-top: 60px; /* Ajusta según la altura del menú */
+  padding-bottom: 80px; /* Ajusta según la altura del footer */
+}
+.content {
+  flex: 1; /* Permite que el contenido ocupe el espacio restante */
+  padding: 109px 0px 191px; /* Agrega un poco de relleno para el contenido principal */
+  overflow-y: auto; /* Habilita el desplazamiento si el contenido excede la altura del viewport */
+}
 /*CSS Contenedor Objetos*/
 .container {
   padding: 20px;
   background-color: #000000;
 }
 .contenedor {
-  padding-top: 50px;
   color: aliceblue;
 }
 .contenedor h3 {
@@ -76,7 +89,9 @@
   padding: 0 30px;
   border-bottom: 2px solid #343a40;
   width: 100%;
-  
+  position: fixed; /* Fija el menú en la parte superior */
+  top: 0; /* Posiciona en la parte superior del viewport */
+  z-index: 10;
 }
 
 /* CSS Table*/
@@ -103,6 +118,13 @@
   text-align: center;
   padding-bottom: 1px;
   padding-top: 16px;
+  position: fixed; /* Fija el pie de página en la parte inferior */
+  bottom: 0; /* Posiciona en la parte inferior del viewport */
+  z-index: 10; /* Asegura que el pie de página se mantenga debajo de otro contenido */
+}
+.active {
+  font-weight: bold;
+  color: red; /* Puedes ajustar el color según tu diseño */
 }
 
 .contact-info,

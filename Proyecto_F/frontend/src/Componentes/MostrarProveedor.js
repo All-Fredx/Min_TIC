@@ -27,7 +27,7 @@ const MostrarProveedor = () => {
             <div className="container">
                 <div className="row">
                     <div className="col">
-                        <Link to = "agregar/" className="btn btn-primary mt-2 mb-2 "><i className="fa-solid fa-user-plus"></i>
+                        <Link to = "agregar" className="btn btn-primary mt-2 mb-2 "><i className="fa-solid fa-user-plus"></i>
                         </Link>
                         <table className="table">
                             <thead className="tablethebg">

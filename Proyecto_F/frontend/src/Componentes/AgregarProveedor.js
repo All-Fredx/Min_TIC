@@ -21,7 +21,15 @@ const AgregarProveedor = () => {
             telefono,
             direccion,
         });
-        navigate("/proveedores");
+        limpiarCampos();
+    };
+    
+    const limpiarCampos = () => {
+        setRazonSocial("");
+        setNIT("");
+        setCorreo("");
+        setTelefono("");
+        setDireccion("");
     };
 
     const irAProveedores = () => {

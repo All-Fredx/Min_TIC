@@ -23,10 +23,17 @@ const AgregarCliente = () => {
             telefono,
             direccion,
         });
-        navigate("/clientes");
+        limpiarCampos();
     };
     
-
+    const limpiarCampos = () => {
+        setNombres("");
+        setApellidos("");
+        setDocumento("");
+        setCorreo("");
+        setTelefono("");
+        setDireccion("");
+    };
     const irAClientes = () => {
         navigate("/clientes");
     };
@@ -115,6 +122,7 @@ const AgregarCliente = () => {
                         <button type="submit" className="btn btn-primary">
                             Agregar
                         </button>
+                        
                     </div>
                 </div>
             </form>
