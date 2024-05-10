@@ -1,7 +1,6 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./Table.css";
 
 const URL = "http://localhost:5000/api/clientes/";
 

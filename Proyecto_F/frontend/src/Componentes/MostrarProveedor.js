@@ -1,12 +1,11 @@
 import axios from "axios";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import "./Table.css";
 
-const URL = "http://localhost:5000/api/proveedores/";
+const URL = "http://localhost:4000/api/proveedores/";
 
 const MostrarProveedor = () => {
-    const [clientes, setProveedor] = useState([])
+    const [proveedores, setProveedor] = useState([])
     useEffect(() => {
         getProveedores();
     },[]);
@@ -40,7 +39,7 @@ const MostrarProveedor = () => {
                                 </tr>
                             </thead>
                             <tbody>
-                                {clientes.map( (proveedor, index) => (
+                                {proveedores.map( (proveedor, index) => (
                                     <tr key = {index}>
                                         <td>{proveedor.razonSocial}</td>
                                         <td>{proveedor.NIT}</td>
