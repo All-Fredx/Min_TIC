@@ -11,6 +11,9 @@ import ModificarCliente from "./Pages/Modulos/ModificarCliente";
 import MostrarProveedor from "./Pages/Modulos/MostrarProveedor";
 import AgregarProveedor from "./Pages/Modulos/AgregarProveedor";
 import ModificarProveedor from "./Pages/Modulos/ModificarProveedor";
+import MostrarUsuario from "./Pages/Modulos/MostrarUsuario";
+import ModificarUsuario from "./Pages/Modulos/ModificarUsuario";
+import CambiarPassword from "./Pages/Modulos/CambiarPassword";
 
 function App() {
   return (
@@ -21,6 +24,18 @@ function App() {
             <Route path="/" element={<Navigate to="/login" />} />
             <Route path="/login" element={<Login />} />
             <Route path="/register" element={<Registro />} />
+            <Route
+              path="/usuario"
+              element={<RutaProtegida element={<MostrarUsuario />} />}
+            />
+            <Route
+              path="/usuario/editar"
+              element={<RutaProtegida element={<ModificarUsuario />} />}
+            />
+            <Route
+              path="/usuario/password"
+              element={<RutaProtegida element={<CambiarPassword />} />}
+            />
             <Route
               path="/clientes"
               element={<RutaProtegida element={<MostrarCliente />} />}

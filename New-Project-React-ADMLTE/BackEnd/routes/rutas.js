@@ -25,6 +25,18 @@ router.post("/usuarios", [
     check("password","El password debe contener minimo 10 caracteres").isLength({min:10,}),
 ],
 usuarioController.crearUsuario);
+router.get("/usuarios/:id", usuarioController.buscarUsuarioID);
+router.get("/usuarios/mail/:email", usuarioController.buscarUsuario);
+router.put("/usuarios/:id", [
+    check("nombres","Los nombres son obligatorios").not().isEmpty(),
+    check("email","Ingresa un email valido").isEmail(),
+],
+usuarioController.modificarUsuario);
+router.put("/usuarios/password/:id", [
+    check("nuevaContrasena","El password debe contener minimo 10 caracteres").isLength({min:10,}),
+],
+usuarioController.actualizarContrasena);
+router.delete("/usuarios/:email", usuarioController.eliminarUsuario);
 
 //rutas Clientes
 router.post("/clientes/", clienteController.agregarClientes);

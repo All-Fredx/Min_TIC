@@ -117,8 +117,8 @@ const Registro = () => {
             <b>Registrarse</b>
           </Link>
         </div>
-        <div className="card">
-          <div className="card-body register-card-body">
+        <div className="">
+          <div className="card register-card-body">
             <p className="login-box-msg">Ingrese los datos del usuario</p>
             <form onSubmit={onSubmit}>
               <div className="input-group mb-3">

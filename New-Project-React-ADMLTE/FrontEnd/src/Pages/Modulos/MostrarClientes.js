@@ -76,7 +76,7 @@ const MostrarCliente = () => {
             <div className="row text-center border">
               <div className="col">
                 <Link to="agregar" className="btn btn-primary mt-2 mb-2">
-                  <i className="fa-solid fa-user-plus"></i>
+                  <i className="fa-solid fa-file-circle-plus"></i>
                 </Link>
                 <div className="table-responsive">
                   <table className="table">

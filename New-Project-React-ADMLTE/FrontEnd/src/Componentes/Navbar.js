@@ -1,5 +1,6 @@
 import React from "react";
 import { Link, useNavigate } from "react-router-dom";
+//import APIInvoke from "../val/APIInvoke.js";
 import swal from "sweetalert";
 
 const Navbar = () => {
@@ -11,9 +12,11 @@ const Navbar = () => {
       text: "¡Hasta Pronto!",
       icon: "success",
       button: false,
-      timer: 3000,
+      timer: 2000,
     });
     localStorage.removeItem("token");
+    localStorage.removeItem("mail");
+    localStorage.removeItem("id");
     navigate("/");
   };
 
@@ -28,6 +31,11 @@ const Navbar = () => {
             role="button"
           >
             <i className="fas fa-bars text-light" />
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link to={`/usuario`} className="nav-link">
+            <i className="fa-solid fa-user-pen"></i>
           </Link>
         </li>
         <li className="nav-item d-none d-sm-inline-block">

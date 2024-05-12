@@ -85,9 +85,17 @@ const Login = () => {
           button: false,
           timer: 1000,
         });
-
         const jwt = response.token;
+        const mail = usuario.email;
         localStorage.setItem("token", jwt);
+        localStorage.setItem('mail', mail);
+        
+        const GuardarIDUser = async () => {
+          const response = await APIInvoke.invokeGET(`/api/usuarios/mail/${mail}`, {});
+          console.log(response)
+          localStorage.setItem('id', response._id);
+        };
+        GuardarIDUser();
         navigate("/home");
       }
     }
@@ -96,7 +104,7 @@ const Login = () => {
     e.preventDefault();
     IniciarSesion();
   };
-
+  
   return (
     <div className="hold-transition login-page">
       <div className="login-box">
@@ -106,7 +114,7 @@ const Login = () => {
           </Link>
         </div>
         <div className="card">
-          <div className="card-body login-card-body">
+          <div className="card login-card-body">
             <p className="login-box-msg">Bienvenido, puede loguearse</p>
             <form onSubmit={onSubmit}>
               <div className="input-group mb-3">
