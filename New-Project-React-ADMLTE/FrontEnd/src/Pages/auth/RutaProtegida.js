@@ -44,7 +44,7 @@ const RutaProtegida = ({ element }) => {
 
   // Verificar el tiempo de expiración del token cuando el componente se monta
   useEffect(() => {
-    const timeout = setInterval(checkTokenExpiration, 60000); // Verificar cada minuto
+    const timeout = setInterval(checkTokenExpiration, 100); 
     return () => clearInterval(timeout); // Limpiar el intervalo al desmontar el componente
   }, []); // Llamada a useEffect sin dependencias
 

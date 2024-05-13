@@ -69,7 +69,6 @@ exports.buscarUsuario = async(req,res) => {
       res.status(404).send({msg:"Hubo un error al buscar el usuario"});
   }
 };
-
 exports.modificarUsuario = async (req, res) => {
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
@@ -77,7 +76,6 @@ exports.modificarUsuario = async (req, res) => {
   }
   const id = req.params.id;
   const { nombres, email } = req.body;
-  
   try {
     let usuario = await Usuarios.findById(id);
     if (!usuario) {
@@ -89,13 +87,9 @@ exports.modificarUsuario = async (req, res) => {
           return res.status(400).json({ msg: "Ya existe un usuario con ese correo electrónico" });
         }
       }
-
-      // Actualizar los campos del usuario
       usuario.nombres = nombres,
       usuario.email = email;
-
       await usuario.save();
-
       res.json({ msg: "Usuario actualizado correctamente" });
     }
   } catch (error) {
@@ -103,16 +97,15 @@ exports.modificarUsuario = async (req, res) => {
     res.status(400).send({msg:"Hubo un error al actualizar el usuario"});
   }
 };
-
 exports.actualizarContrasena = async (req, res) => {
   const errores = validationResult(req);
   if (!errores.isEmpty()) {
     return res.status(400).json({ errores: errores.array() });
   }
   const { contrasenaAnterior, nuevaContrasena } = req.body;
-  const { email } = req.params;
+  const id = req.params.id;
   try {
-     let usuario = await Usuarios.findOne({email});
+     let usuario = await Usuarios.findById(id);
     if (!usuario) {
       return res.status(404).json({ msg: "Usuario no encontrado" });
     }
@@ -127,7 +120,6 @@ exports.actualizarContrasena = async (req, res) => {
     await usuario.save();
     res.json({ msg: "Contraseña actualizada correctamente" });
   } catch (error) {
-    console.log("Hubo un error");
     console.log(error);
     res.status(400).send("Hubo un error");
   }

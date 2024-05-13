@@ -44,7 +44,7 @@ const Navbar = () => {
             className="nav-link text-light"
             style={{ cursor: "pointer" }}
           >
-            Cerrar Sesión
+            <i className="fa-solid fa-arrow-right-from-bracket" style={{color: '#c70000'}}/>
           </strong>
         </li>
       </ul>
